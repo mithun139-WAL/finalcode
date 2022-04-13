@@ -1,0 +1,149 @@
+h2 {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 300;
+  text-align: center;
+  text-transform: uppercase;
+  position: relative;
+  margin: 30px 0 60px;
+}
+h2::after {
+  content: '';
+  width: 100px;
+  position: absolute;
+  margin: 0 auto;
+  height: 4px;
+  border-radius: 1px;
+  left: 0;
+  right: 0;
+  bottom: -20px;
+}
+.carousel {
+  margin: 50px auto;
+  padding: 0 70px;
+}
+.bg-cart {
+  width: fit-content;
+}
+.carousel .item {
+  color: #747d89;
+  min-height: 325px;
+  text-align: center;
+  overflow: hidden;
+}
+.carousel .thumb-wrapper {
+  padding: 25px 15px;
+  margin: 5px;
+  cursor: pointer;
+  background: #fff;
+  border-radius: 6px;
+  text-align: center;
+  position: relative;
+  border: 1px solid rgba(125, 125, 125, 0.3);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+.carousel .item .img-box {
+  height: 120px;
+  margin-bottom: 20px;
+  width: 100%;
+  position: relative;
+}
+.carousel .item img {
+  width: 100%;
+  border-radius: 10px;
+  max-height: 100%;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+.carousel .item h6 {
+  font-size: 18px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.carousel .item h6,
+.carousel .item p,
+.carousel .item ul {
+  margin-bottom: 5px;
+}
+.carousel .thumb-content .btn {
+  color: #2b5876;
+  font-size: 11px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: none;
+  border: 1px solid #4e4376;
+  padding: 6px 14px;
+  margin-top: 5px;
+  line-height: 16px;
+  border-radius: 20px;
+}
+.carousel .thumb-content .btn:hover,
+.carousel .thumb-content .btn:focus {
+  color: #fff;
+  background: linear-gradient(to right, #2b5876, #4e4376);
+  box-shadow: none;
+}
+.carousel .item-price {
+  font-size: 13px;
+  padding: 2px 0;
+}
+.carousel-control-prev,
+.carousel-control-next {
+  height: 44px;
+  width: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  margin: auto 0;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+}
+.carousel-control-prev i,
+.carousel-control-next i {
+  font-size: 36px;
+  position: absolute;
+  top: 50%;
+  display: inline-block;
+  margin: -19px 0 0 0;
+  z-index: 5;
+  left: 0;
+  right: 0;
+  color: #fff;
+  text-shadow: none;
+  font-weight: bold;
+}
+.carousel-control-prev i {
+  margin-left: -2px;
+}
+.carousel-control-next i {
+  margin-right: -4px;
+}
+
+@media (max-width: 500px) {
+  .second,
+  .third {
+    display: none;
+  }
+  .first {
+    width: 90%;
+    margin: auto;
+  }
+}
+@media (min-width: 501px) and (max-width: 700px) {
+  .third {
+    display: none;
+  }
+  .first,
+  .second {
+    width: 50%;
+    margin: auto;
+  }
+}

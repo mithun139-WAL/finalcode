@@ -1,0 +1,26 @@
+.team1-login-container {
+  width: 40%;
+  padding: 20px 30px;
+  margin: 100px auto;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.team1-reg-heading {
+  padding: 15px 0px;
+  text-align: left;
+  color: #000;
+}
+#loading-spinner {
+  margin: 15px auto;
+  visibility: hidden;
+}
+@media (max-width: 500px) {
+  .team1-login-container {
+    width: 80%;
+  }
+}
+@media (min-width: 501px) and (max-width: 800) {
+  .team1-login-container {
+    width: 80%;
+  }
+}

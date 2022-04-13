@@ -1,0 +1,63 @@
+.add {
+  background-color: rgb(21, 185, 21);
+  border: none;
+  width: 250px;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: 18px;
+}
+.team2-title {
+  position: relative;
+  height: 100px;
+  text-align: center;
+  padding-top: 12px;
+}
+.team2-product-card {
+  width: 300px;
+  padding: 10px;
+  text-align: left;
+  height: 500px;
+  margin: auto;
+}
+.team2-quantity {
+  border: none;
+  border-bottom: 2px solid #abab;
+  width: 70%;
+  margin-left: 20px;
+  float: left;
+  outline: none;
+}
+.team2-rating {
+  width: fit-content;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  float: left;
+}
+
+.team2-category {
+  color: gray;
+  margin-left: 10px;
+  float: right;
+}
+h1 {
+  color: #fff;
+  font-variant: small-caps;
+  font-weight: lighter;
+}
+.team2-img {
+  width: 280px;
+  height: 230px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+.team2-titlediv {
+  height: 50px;
+  overflow: hidden;
+}
+table {
+  width: 80%;
+  margin: auto;
+}

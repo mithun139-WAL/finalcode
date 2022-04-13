@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en-us">
+    <meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link href="Bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Home</title>
+    <style>
+      body {
+        background-color: rgb(34, 34, 88);
+      }
+      .menu {
+        background-color: black;
+        width: 100%;
+      }
+      .menu a,
+      .categories a {
+        color: white;
+        padding: 5px 10px;
+        margin: 10px;
+        border-radius: 15px;
+        display: inline-block;
+      }
+      .categories a {
+        width: 90px;
+      }
+      .container {
+        width: 100%;
+      }
+      .logo {
+        width: 150px;
+        height: 50px;
+        border-radius: 10px;
+      }
+      .inline {
+        display: inline-block;
+        color: white;
+        margin: 2px 10px;
+      }
+      .category {
+        width: 110px;
+        text-align: center;
+      }
+      .menu a:hover,
+      .categories a:hover {
+        border: 1px solid white;
+        text-decoration: none;
+      }
+      .search {
+        margin: 10px;
+        width: 48%;
+        text-align: right;
+      }
+      .search button {
+        border: 1px solid black;
+        margin: 0;
+        padding: 5px;
+        color: black;
+      }
+      .searchBar {
+        margin-right: 0;
+        padding: 5px;
+        width: 90%;
+      }
+      .search button:hover {
+        background-color: black;
+        color: white;
+      }
+      .categories {
+        background: rgb(27, 26, 26);
+        text-align: left;
+        padding: 15px;
+      }
+      .categories a {
+        color: white;
+        text-decoration: none;
+      }
+      .card {
+        box-shadow: 3px 3px 3px grey;
+        background: white;
+        margin: 5px;
+        padding: 5px;
+      }
+      .title {
+        font-weight: bold;
+        height: 50px;
+        overflow: hidden;
+      }
+      .price {
+        font-size: 20px;
+        color: blue;
+      }
+      .description {
+        color: grey;
+        text-align: left;
+        padding: 5px;
+        height: 100px;
+        overflow: hidden;
+        margin-bottom: 5px;
+      }
+      .categories img {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+      }
+      .products-img {
+        height: 200px;
+        width: 90%;
+        margin: 5px;
+        border-radius: 10px;
+      }
+      #products {
+        width: 99%;
+        margin: auto;
+      }
+
+      @media (min-width: 600px) and (max-width: 900px) {
+        .search {
+          width: 100%;
+          margin: 0;
+          text-align: left;
+        }
+        .searchBar {
+          width: 65%;
+          margin: 0px 2px 0px 25px;
+        }
+      }
+      @media (max-width: 599px) {
+        .links {
+          margin-top: 10px;
+        }
+        .category {
+          width: 80px;
+        }
+        .search {
+          width: 100%;
+          margin: 0;
+          text-align: left;
+        }
+        .searchBar {
+          width: 65%;
+          margin: 0px 2px 0px 25px;
+        }
+        .logo-image {
+          margin: 0;
+          width: 100%;
+          text-align: center;
+        }
+        .logo {
+          width: 70%;
+          height: 70px;
+        }
+        .products-img {
+          width: 100px;
+          height: 100px;
+          margin: auto;
+        }
+      }
+      @media (min-width: 901px) {
+      }
+      .cards {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin: 40px 20px;
+        height: 300px;
+      }
+
+      .card-img-top {
+        width: 200px;
+        margin: 0px;
+        padding: 5px 10px;
+        border-width: 2px 0px 2px 2px;
+        border-style: solid;
+        border-color: black;
+        border-radius: 10px 0px 0px 10px;
+      }
+
+      .card-body {
+        padding: 10px;
+        width: 100%;
+        border-width: 2px 2px 2px 0px;
+        border-style: solid;
+        border-color: black;
+        border-radius: 0px 10px 10px 0px;
+      }
+
+      .card-title,
+      .card-text,
+      .view-product-button {
+        padding: 10px;
+        word-wrap: break-word;
+      }
+
+      .card-text {
+        height: 120px;
+        word-wrap: break-word;
+        text-overflow: clip;
+      }
+
+      .view-product-button {
+        margin: 10px;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      footer {
+        width: 100%;
+        background-color: #121212;
+        bottom: 0px;
+      }
+
+      .footer a {
+        color: #a3de83;
+      }
+
+      .footer p {
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      .footer .menu {
+      }
+
+      .footer .menu a {
+        color: rgba(255, 255, 255, 0.6);
+        margin: 0 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .copyright-link {
+        padding: 0px 10px;
+      }
+
+      @media (max-width: 300px) {
+        .cards {
+          width: 90%;
+          height: 400px;
+        }
+
+        .card-img-top {
+          width: 100px;
+        }
+
+        .card-title {
+          height: 150px;
+          overflow: scroll;
+        }
+
+        .card-text {
+          height: 150px;
+          overflow: scroll;
+          word-wrap: break-word;
+          text-overflow: ellipsis;
+        }
+      }
+
+      @media (min-width: 301px) and (max-width: 500px) {
+        .cards {
+          width: 90%;
+          height: 400px;
+        }
+
+        .card-img-top {
+          width: 120px;
+        }
+
+        .card-title {
+          height: 150px;
+          overflow: hidden;
+        }
+
+        .card-text {
+          height: 130px;
+          overflow: hidden;
+          word-wrap: break-word;
+          text-overflow: ellipsis;
+        }
+      }
+
+      @media (min-width: 501px) and (max-width: 1000px) {
+        .cards {
+          width: 90%;
+          height: 340px;
+        }
+
+        .card-img-top {
+          width: 150px;
+        }
+
+        .card-title {
+          height: 90px;
+          overflow: hidden;
+        }
+
+        .card-text {
+          height: 130px;
+          overflow: hidden;
+          word-wrap: break-word;
+          text-overflow: ellipsis;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="">
+      <div class="menu">
+        <div class="inline logo-image">
+          <img src="Asserts/logo.jpeg" class="logo" alt="Logo" />
+        </div>
+        <div class="inline links">
+          <a href="#">Home</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+          <a href="#">Team</a>
+          <a href="#">Offices</a>
+        </div>
+        <div class="inline search">
+          <input type="text" placeholder="Search.." class="searchBar" />
+          <button type="submit"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
+      <div class="categories">
+        <div class="inline category">
+          <img src="Asserts/men.jpg" class="img-rounded" />
+          <a href="#">Men's</a>
+        </div>
+        <div class="inline category">
+          <img src="Asserts/women.jpg " />
+          <a href="#">Women's</a>
+        </div>
+        <div class="inline category">
+          <img src="Asserts/electronics.jpeg" />
+          <a href="#">Electronics</a>
+        </div>
+        <div class="inline category">
+          <img src="Asserts/jewellery.jpg" />
+          <a href="#">Jwellery</a>
+        </div>
+      </div>
+      <div class="row" id="products"></div>
+      <div
+        id="myCarousel"
+        class="carousel slide"
+        data-ride="carousel"
+        data-interval="1000"
+      >
+        <div class="carousel-inner">
+          <div class="item active">
+            <div class="card">
+              <img
+                class="card-img-top"
+                src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg"
+                alt="Card image cap"
+              />
+              <div class="card-body">
+                <h4 class="card-title">
+                  1. John Hardy Women's Legends Naga Gold & Silver Dragon
+                  Station Chain Bracelet
+                </h4>
+                <p class="card-text">
+                  Easy upgrade for faster boot up, shutdown, application load
+                  and response (As compared to 5400 RPM SATA 2.5â€ hard drive;
+                  Based on published specifications and internal benchmarking
+                  tests using PCMark vantage scores) Boosts burst write
+                  performance, making it ideal for typical PC workloads The
+                  perfect balance of performance and reliability Read/write
+                  speeds of up to 535MB/s/450MB/s (Based on internal testing;
+                  Performance may vary depending upon drive capacity, host
+                  device, OS and application.)
+                </p>
+                <a href="#/demo" class="btn btn-success view-product-button"
+                  >View Product</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <footer class="footer">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p class="menu">
+              <a href="#/">Home</a>
+              <a href="#/">Products</a>
+              <a href="#/">About</a>
+              <a href="#/">Listing</a>
+              <a href="#/">Blog</a>
+              <a href="#/">Contact</a>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>
+              <a class="copyright-link" href="#">Conditions of Use & Sale</a>
+              <a class="copyright-link" href="#">Privacy Notice</a>
+              <a class="copyright-link" href="#">Interest-Based Ads</a>
+              <a class="copyright-link" href="#"
+                >&copy; 1996-2022, Amazon.com, Inc.</a
+              >
+            </p>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      axios.get("https://fakestoreapi.com/products").then((res) => {
+        let arr = res.data;
+        console.log(arr[0].title);
+        let d_tag = document.getElementById("products");
+        for (let i in arr) {
+          if (i < 8) {
+            d_tag.innerHTML +=
+              "<div class='col-lg-3 col-sm-6 col-md-4 col-xs-6'>" +
+              "<div class='card m-2 p-2'>" +
+              "<img src=" +
+              arr[i].image +
+              "  class='products-img'>" +
+              "<div class='title'>" +
+              arr[i].title +
+              "</div>" +
+              "<div class='price'>" +
+              arr[i].price +
+              "$</div>" +
+              "<div class='description'>" +
+              arr[i].description +
+              "</div>" +
+              "<div class='text-center m-2'><button class='btn btn-success'>Add to Cart</button></div>" +
+              "</div>";
+          }
+        }
+      });
+      async function loadProducts() {
+        let start = true;
+        const carouselContainer = document.querySelector(".carousel-inner");
+        console.log("before");
+        let result = await fetch("https://fakestoreapi.com/products")
+          .then((response) => response.json())
+          .catch((error) => console.log(error));
+        console.log("after");
+        result.slice(0, 4).forEach((product) => {
+          carouselContainer.innerHTML += `
+                <div class="item">
+                    <div class="card cards">
+                        <img class="card-img-top"
+                            src="${product.image}"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h4 class="card-title">${product.title}</h4>
+                            <p class="card-text">${product.description}</p>
+                            <a href="#" class="btn btn-success view-product-button">View Product</a>
+                        </div>
+                    </div>
+                </div>`;
+          if (product.id == 1) start = false;
+        });
+      }
+      window.addEventListener("load", loadProducts);
+    </script>
+  </body>
+</html>

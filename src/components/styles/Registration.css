@@ -1,0 +1,32 @@
+.team1-registration-form-container {
+  width: 40%;
+  padding: 20px 30px;
+  margin: 70px auto;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.team1-validation-error {
+  color: red;
+  margin: 0px;
+  padding: 0px;
+  text-align: left;
+}
+.team1-reg-heading {
+  padding: 15px 0px;
+  text-align: left;
+}
+.team1-already {
+  text-align: right;
+  margin: 10px 0px;
+  font-weight: bold;
+}
+@media (max-width: 500px) {
+  .team1-registration-form-container {
+    width: 80%;
+  }
+}
+@media (min-width: 501px) and (max-width: 800) {
+  .team1-registration-form-container {
+    width: 50%;
+  }
+}
