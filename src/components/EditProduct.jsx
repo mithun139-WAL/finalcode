@@ -23,7 +23,7 @@ function EditProduct() {
   const [category, setCategory] = useState();
   const [rating, setRating] = useState();
   const [categorydata, setCategorydata] = useState([]);
-  const [finalCat, setFinalCat] = useState('');
+  const [finalCat, setFinalCat] = useState();
   const urlParams = useParams();
   console.log('category', category);
   console.log('urlParams', urlParams);
@@ -66,12 +66,14 @@ function EditProduct() {
   }
   return (
     <div>
-      <h4 className="mt-1 team3_showname team3_textcenter team3-text-white">
-        Update the details of Product with Id :{urlParams.id}
+      <h4 className="mt-1 team3_showname team3_textcenter team3-text-white mb-5">
+        Update the details of Product with Id : {urlParams.id.slice(18)}
       </h4>
-      <form onSubmit={updateDetails} className="team3_ediproduct_form">
+      <form onSubmit={updateDetails} className="team3_ediproduct_form bg-white">
         <div>
-          <label className="team3-text-white">Title</label>
+          <label>
+            <b>Title</b>
+          </label>
           <input
             type="text"
             id="prodTitle"
@@ -79,7 +81,9 @@ function EditProduct() {
             value={title || ''}
             onInput={(e) => setTitle(e.target.value)}
           />
-          <label className="team3-text-white">Price</label>
+          <label>
+            <b>Price</b>
+          </label>
           <input
             type="number"
             id="number"
@@ -87,7 +91,9 @@ function EditProduct() {
             value={price || ''}
             onInput={(e) => setPrice(e.target.value)}
           />
-          <label className="team3-text-white">About Product</label>
+          <label>
+            <b>About Product</b>
+          </label>
           <textarea
             type="text"
             className="form-control mb-2"
@@ -95,7 +101,23 @@ function EditProduct() {
             value={description || ''}
             onInput={(e) => setDescription(e.target.value)}
           />
-          <label className="team3-text-white mt-2">Rating</label>
+          <label className=" mt-2">
+            <b>Category</b>
+          </label>
+          <br />
+          <select
+            name="category"
+            className="form-control"
+            onChange={(e) => setFinalCat(e.target.value)}
+          >
+            {categorydata.map((val) => {
+              return <option value={val._id}>{val.name}</option>;
+            })}
+          </select>
+          <br />
+          <label className="mt-2">
+            <b>Rating</b>&nbsp;&nbsp;
+          </label>
           <input
             type="number"
             max="5"
@@ -104,24 +126,11 @@ function EditProduct() {
             value={rating || ''}
             onInput={(e) => setRating(e.target.value)}
           />
-          <div className="col-lg-6 col-sm-12 col-md-6">
-            <label className="team3-text-white mt-2">Category</label>
-            <br />
-            <select
-              name="category"
-              className="form-control"
-              onChange={(e) => setFinalCat(e.target.value)}
-            >
-              {categorydata.map((val) => {
-                return <option value={val._id}>{val.name}</option>;
-              })}
-            </select>
-          </div>
         </div>
-        <div className="d-flex justify-content-end">
-          <button className="btn btn-primary  m-2">Save</button>
+        <div className="d-flex justify-content-center">
+          <button className="btn btn-primary team3-b-btn">Save</button>
           <Link to="/admin/view_products">
-            <button className="btn btn-primary m-2">Go back</button>
+            <button className="btn btn-primary team3-b-btn">Go back</button>
           </Link>
         </div>
       </form>

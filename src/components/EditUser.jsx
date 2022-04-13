@@ -38,7 +38,7 @@ function EditUser() {
   return (
     <div>
       <h4 className="mt-1 team3_showname team3_textcenter team3-text-white">
-        Changing the details of user with Id :{urlParams.id}
+        Changing the details of user with Id :{urlParams.id.slice(-6)}
       </h4>
       <form className="team3_ediproduct_form">
         <h6 className="team3-text-white">Email</h6>

@@ -29,53 +29,56 @@ function UserListing() {
 
   console.log(users);
   return (
-    <section className="container-fluid team3-userlist-section text-center">
-      <Routes>
-        <Route path="/admin/edituser" element={<EditUser />} />
-      </Routes>
-      <div className="header">
-        <h3 className="team3_textcenter">Showing Current Users</h3>
-      </div>
-      <div className="row ">
-        {users.map((val) => (
-          <div className="team3-products col-lg-3 col-md-6 col-sm-6">
-            <div key={val._id}>
-              <div className="team3-userlist-title">
-                <img
-                  className="team3_img-p"
-                  src={profile}
-                  alt="User goes here"
-                />
-                <h3 className="card-title mt-3 ml-3 team3_showname">
-                  {val.username}
-                </h3>
+    <div className="team3_usersDiv">
+      <section className="container-fluid team3-userlist-section text-center ">
+        <Routes>
+          <Route path="/admin/edituser" element={<EditUser />} />
+        </Routes>
+        <div className="header">
+          <h3 className="team3_textcenter">Showing Current Users</h3>
+        </div>
+        <div className="row ">
+          {users.map((val) => (
+            <div className="team3-products col-lg-3 col-md-6 col-sm-6">
+              <div key={val._id}>
+                <div className="team3-userlist-title">
+                  <img
+                    className="team3_img-p"
+                    src={profile}
+                    alt="User goes here"
+                  />
+                  <h3 className="card-title mt-3 ml-3 team3_showname">
+                    {val.username}
+                  </h3>
+                </div>
+                <div className="team3_username_display">
+                  username : <b>{val.username}</b>
+                </div>
+                <p>email : {val.email}</p>
+                <div>
+                  <p>
+                    Id : <b>{val._id.slice(-6)}</b>
+                  </p>
+                </div>
+                <div className="card-body">
+                  <h4 className="text-center team3-addressdiv">Address</h4>
+                  <p>{val.address}</p>
+                </div>
+                <button
+                  className="btn btn-danger m-2"
+                  onClick={() => deleteUser(val._id)}
+                >
+                  Delete
+                </button>
+                <Link to={`/admin/edituser/${val._id}`}>
+                  <button className="btn btn-info">Edit Details</button>
+                </Link>
               </div>
-              <div className="team3_username_display">
-                username : <b>{val.username}</b>
-              </div>
-              <div>
-                <p>
-                  Id : <b>{val._id}</b>
-                </p>
-              </div>
-              <div className="card-body">
-                <h4 className="text-center team3-addressdiv">Address</h4>
-                <p>{val.address}</p>
-              </div>
-              <button
-                className="btn btn-danger m-2"
-                onClick={() => deleteUser(val._id)}
-              >
-                Delete
-              </button>
-              <Link to={`/admin/edituser/${val._id}`}>
-                <button className="btn btn-info">Edit Details</button>
-              </Link>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
+          ))}
+        </div>
+      </section>
+    </div>
   );
 }
 export default UserListing;

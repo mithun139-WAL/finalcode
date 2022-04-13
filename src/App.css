@@ -427,9 +427,6 @@ td {
 }
 .team3-products {
   display: inline-flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
   margin: auto;
   margin-bottom: 3%;
 }
@@ -450,6 +447,7 @@ td {
   margin: auto;
   border-radius: 10px;
   margin-bottom: 3%;
+  box-shadow: 10px 5px black;
 }
 .team3-text-white {
   color: white;
@@ -488,4 +486,22 @@ td {
 }
 .team3_username_display {
   margin-top: 70px;
+}
+
+.team3-card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.team3-b-btn {
+  border: none;
+  padding: 10px;
+  margin: 10px;
+  color: antiquewhite;
+  border-radius: 7px;
+  width: 120px;
+  margin: auto;
+  margin: 20px;
 }

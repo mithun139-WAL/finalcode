@@ -3,6 +3,7 @@ import axios from 'axios';
 import React from 'react';
 
 function ClearAll() {
+  // Deleting the cart data from the backend
   const clearCart = () => {
     axios
       .create({

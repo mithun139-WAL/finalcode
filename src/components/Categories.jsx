@@ -6,7 +6,7 @@ import ProductsContext from './ProductContext';
 export default function Categories() {
   const [categories, setCategories] = useState([]);
   const { dispatch } = useContext(ProductsContext);
-
+  // Fetching categories data from backend
   useEffect(() => {
     axios.get('/categories').then((response) => {
       const categoriess = response.data.map((item) => item.name);

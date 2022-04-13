@@ -9,6 +9,7 @@
 /* eslint-disable react/jsx-one-expression-per-line */
 import { React, useEffect, useState } from 'react';
 import axios from 'axios';
+import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 
 function ProductListing() {
@@ -67,29 +68,36 @@ function ProductListing() {
       <h4 className="m-2 mb-3 team3_showname team3-text-white ">
         Displaying products
       </h4>
-      {data.map((val) => (
-        <div className="team3-products ">
-          <div className="card team3_divimg m-5">
+      <div className="team1-product-container clearfix">
+        {data.map((val) => (
+          <div className=" card m-3 product team1-card">
             <img
-              className="team3-card-img-top"
+              className="team1-card-img-top"
               alt={val.title}
               src={val.image}
             />
-            <div className="card-body">
-              <div>
-                <h4>{val.title}</h4> <br />
-                <h6>{val.description}</h6>
+            <div className="card-body team1-card-body text-left">
+              <h6 className="team1-card-title">{val.title}</h6>
+              <p className="team3-card-text text-muted">{val.description}</p>
+              <div className="team1-rating">
+                <Rating
+                  className="d-block"
+                  start={0}
+                  stop={5}
+                  step={1}
+                  fractions={10}
+                  initialRating={val.rating}
+                  readonly
+                />
+                <h6>{val.rating}</h6>
               </div>
-              <h6>Category : {val.category.name} </h6>
-              <h5 className="aligncenter">
-                Price : <b>${val.price}</b>
-              </h5>
-              <p className="p-pp alignleft">
-                <span className="team3_ratingRate">{val.rating}★</span>
-              </p>
-              <div className="d-flex flex-row-reverse">
+              <div className="mt-2 row">
+                <h5 className="col price w-50 d-inline">{`₹ ${val.price}`}</h5>
+              </div>
+
+              <div className="d-flex justify-content-center ">
                 <Link to={`/admin/editproduct/${val._id}`}>
-                  <button className="btn btn-primary btn-sm m-2">
+                  <button className="btn btn-primary btn-sm  team3-b-btn m-2">
                     Edit
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -104,7 +112,7 @@ function ProductListing() {
                   </button>
                 </Link>
                 <button
-                  className="btn btn-danger btn-sm m-2"
+                  className="btn btn-danger btn-sm team3-b-btn m-2"
                   onClick={() => deleteProduct(val._id)}
                 >
                   Delete
@@ -126,8 +134,8 @@ function ProductListing() {
               </div>
             </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }

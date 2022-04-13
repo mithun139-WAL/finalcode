@@ -24,6 +24,7 @@ export default function AddProducts() {
   const [image, setImage] = useState();
   const [file, setFile] = useState();
   const [fileName, setFileName] = useState('');
+  // Fetching the categories data from the backend
   useEffect(() => {
     axios
       .get('/categories')
@@ -33,7 +34,7 @@ export default function AddProducts() {
       })
       .catch((error) => console.log(error));
   }, []);
-
+  // converting image file as an object
   const saveFile = (e) => {
     setFile(e.target.files[0]);
     setFileName(e.target.files[0].name);
@@ -46,6 +47,7 @@ export default function AddProducts() {
     formData.append('description', description);
     formData.append('category', finalCat);
     formData.append('rating', rating);
+    // Posting the product data to the backend
     try {
       const res = await axios.post('http://localhost:3000/products/', formData);
       alert('Product added successfully');

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -30,12 +31,16 @@ const Styles = styled.div`
 `;
 function ShowProduct() {
   const [cart, setCart] = useState([]);
-
-  const delet = (l) => {
-    const newCart = cart.filter((val) => val._id !== l);
+  // Removing the cart item from the cart list
+  const delet = (cartId) => {
+    const newCart = cart.filter((val) => val._id !== cartId);
     setCart(newCart);
   };
-
+  // Removing all the cart items from the cart list
+  const clear = () => {
+    setCart([]);
+  };
+  // Fetching cart data from backend
   useEffect(() => {
     axios
       .create({
@@ -61,7 +66,7 @@ function ShowProduct() {
         <table className="border border-secondary my-5">
           <thead>
             <tr>
-              <td colSpan="4">
+              <td colSpan="4" onClick={() => clear()}>
                 <ClearAll />
               </td>
             </tr>
@@ -77,7 +82,11 @@ function ShowProduct() {
               <tr>
                 <td>{val._id}</td>
                 <td>{val.products[0].product.title}</td>
-                <td>{`₹${val.products[0].product.price}`}</td>
+                <td>
+                  {`₹${
+                    val.products[0].product.price * val.products[0].quantity
+                  }`}
+                </td>
                 <td onClick={() => delet(val._id)}>
                   <DeleteButton id={val._id} />
                 </td>

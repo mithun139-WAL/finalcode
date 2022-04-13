@@ -5,6 +5,7 @@ import React from 'react';
 import axios from 'axios';
 
 function DeleteButton(props) {
+  // Deleting the cart item from the cart data in the backend
   const deleteFromCart = () => {
     axios
       .create({
