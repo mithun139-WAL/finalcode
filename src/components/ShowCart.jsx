@@ -1,3 +1,6 @@
+/* eslint-disable operator-linebreak */
+/* eslint-disable implicit-arrow-linebreak */
+/* eslint-disable arrow-body-style */
 /* eslint-disable react/jsx-one-expression-per-line */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
@@ -52,8 +55,17 @@ function ShowProduct() {
       })
       .get('/cart')
       .then((response) => {
+        const user = JSON.parse(localStorage.getItem('regtoken user'))._id;
+        console.log('val', user);
         console.log(response.data);
-        setCart(response.data);
+        const filteredCart = response.data.filter(
+          (val) =>
+            val.userId._id ===
+            JSON.parse(localStorage.getItem('regtoken user'))._id
+        );
+
+        console.log(filteredCart);
+        setCart(filteredCart);
       })
       .catch((error) => {
         console.log('An error occurred:', error.response);

@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 /* eslint-disable no-alert */
 /* eslint-disable linebreak-style */
 /* eslint-disable no-underscore-dangle */
@@ -40,6 +41,7 @@ export default function AddProducts() {
     setFileName(e.target.files[0].name);
   };
   const addProduct = async (e) => {
+    e.preventDefault();
     const formData = new FormData();
     formData.append('image', file);
     formData.append('title', title);
@@ -56,10 +58,11 @@ export default function AddProducts() {
     }
   };
   return (
-    <div>
+    <form onSubmit={addProduct}>
       <h1 className="text-center">Add Product</h1>
       <div className="card mx-auto col-lg-4 col-md-6 p-3 my-5">
         <input
+          required
           type="text"
           name="productName"
           className="form-control my-3  mx-auto"
@@ -69,6 +72,7 @@ export default function AddProducts() {
           }}
         />
         <input
+          required
           type="number"
           name="productPrice"
           className="form-control my-3 mx-auto"
@@ -78,6 +82,7 @@ export default function AddProducts() {
           }}
         />
         <input
+          required
           type="file"
           accept="image/*"
           name="productImage"
@@ -87,7 +92,11 @@ export default function AddProducts() {
         />
 
         <input
+          required
           type="number"
+          min="1"
+          max="5"
+          step="0.01"
           name="initialRating"
           className="form-control my-3 mx-auto"
           placeholder="Rating"
@@ -96,6 +105,7 @@ export default function AddProducts() {
           }}
         />
         <select
+          required
           name="category"
           className="form-control"
           onChange={(e) => {
@@ -108,6 +118,7 @@ export default function AddProducts() {
           })}
         </select>
         <textarea
+          required
           className="form-control my-3 mx-auto"
           placeholder="Enter Description of the product......"
           name="productDescription"
@@ -115,10 +126,10 @@ export default function AddProducts() {
             setDescription(e.target.value);
           }}
         />
-        <button className="btn btn-primary " type="submit" onClick={addProduct}>
+        <button className="btn btn-primary " type="submit">
           Add Product
         </button>
       </div>
-    </div>
+    </form>
   );
 }

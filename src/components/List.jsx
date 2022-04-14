@@ -18,7 +18,7 @@ function ListProducts() {
     alert('added to cart');
     document.querySelector('.team2-quantity').value = '';
     console.log('val', val);
-    console.log('val', JSON.parse(localStorage.getItem('regtoken user'))._id);
+    console.log('val', JSON.parse(localStorage.getItem('regtoken user')));
     console.log('valId', val._id);
     console.log('quantity', quantity);
     // Fetching the cart data fro the backend so that we can add item to cart
